@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Dr. Attia Youseif</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Cormorant Garamond (Headings) and Public Sans (Body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Public+Sans:wght@200;300;400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-blue': '#1a2b56', 
+                        'cream': '#FDF9F8',
+                        'nude': '#E9DAD2',
+                        'accent': '#D8E3FF',
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Public Sans', 'sans-serif'],
+                        arabic: ['Amiri', 'serif']
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+            color: #333;
+            background-color: #fff;
+        }
+        .heading-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .nav-link {
+            letter-spacing: 0.15em;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            opacity: 0.7;
+        }
+        .btn-brand {
+            background-color: #1a2b56;
+            color: white;
+            padding: 0.6rem 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.75rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .btn-brand:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+        .section-tag {
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            color: #666;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .blog-card {
+            background: #fff;
+            transition: all 0.4s ease;
+            border-bottom: 1px solid #f1f1f1;
+        }
+        .blog-card:hover {
+            border-color: #1a2b56;
+        }
+        /* Mobile menu animation */
+        #mobile-menu {
+            transition: transform 0.4s ease-in-out;
+        }
+        .menu-open #mobile-menu {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Top Branding & Navigation -->
+    <header class="w-full bg-brand-blue text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col items-center">
+            
+            <div class="w-full flex justify-between items-center mb-6 text-[10px] uppercase tracking-widest text-white/70">
+                <div class="flex space-x-4">
+                    <a href="https://www.linkedin.com/in/attia-youseif-4a5aab129/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://x.com/AttiaYouseif" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                </div>
+                <div class="flex items-center space-x-2"></div>
+            </div>
+
+            <div class="text-center mb-6">
+                <a href="index.html" class="block group">
+                    <h1 class="heading-serif text-4xl md:text-6xl font-bold tracking-tight text-white group-hover:text-nude transition-colors">
+                        Attia Youseif
+                    </h1>
+                    <span class="block text-[10px] md:text-xs uppercase tracking-[0.4em] text-white/60 mt-2 text-center">
+                        Senior Lecturer of Arabic • Indiana University
+                    </span>
+                </a>
+            </div>
+
+            <nav class="hidden lg:flex items-center space-x-6 xl:space-x-10">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="Research.html" class="nav-link">Research</a>
+                <a href="Teaching.html" class="nav-link">Teaching</a>
+                <a href="Service.html" class="nav-link">Service</a>
+                <a href="Blog.html" class="nav-link font-bold border-b border-white">Blog</a>
+                <a href="Media.html" class="nav-link">Media</a>
+                <a href="Recommended.html" class="nav-link">Recommended</a>
+                <a href="contact.html" class="btn-brand">Contact</a>
+            </nav>
+
+            <button id="menu-toggle" class="lg:hidden absolute right-6 top-1/2 -translate-y-1/2 p-2">
+                <div class="w-6 h-0.5 bg-white mb-1.5"></div>
+                <div class="w-6 h-0.5 bg-white mb-1.5"></div>
+                <div class="w-6 h-0.5 bg-white"></div>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav -->
+    <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-[60] hidden opacity-0 transition-opacity duration-300"></div>
+    <aside id="mobile-menu" class="fixed top-0 right-0 h-full w-80 bg-white z-[70] translate-x-full shadow-2xl p-10 flex flex-col">
+        <button id="close-menu" class="self-end text-3xl font-light mb-10 text-brand-blue">&times;</button>
+        <nav class="flex flex-col space-y-6">
+            <a href="index.html" class="nav-link text-xl text-gray-600">Home</a>
+            <a href="about.html" class="nav-link text-xl text-gray-600">About</a>
+            <a href="Research.html" class="nav-link text-xl text-gray-600">Research</a>
+            <a href="Teaching.html" class="nav-link text-xl text-gray-600">Teaching</a>
+            <a href="Service.html" class="nav-link text-xl text-gray-600">Service</a>
+            <a href="Blog.html" class="nav-link text-xl text-brand-blue font-bold">Blog</a>
+            <a href="Media.html" class="nav-link text-xl text-gray-600">Media</a>
+            <a href="Recommended.html" class="nav-link text-xl text-gray-600">Recommended</a>
+            <a href="contact.html" class="btn-brand text-center mt-4">Contact</a>
+        </nav>
+    </aside>
+
+    <main>
+        <!-- Page Header -->
+        <section class="py-24 bg-cream border-b border-gray-100">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <span class="section-tag">Writings & Reflections</span>
+                <h2 class="heading-serif text-5xl md:text-7xl text-gray-900 mb-6 italic">The Blog</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto text-lg">
+                    Thoughts on Arabic linguistics, the future of language pedagogy, and the intersection of technology and the humanities.
+                </p>
+            </div>
+        </section>
+
+        <!-- Blog Feed -->
+        <section class="py-24 px-6 bg-white">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16">
+                
+                <!-- Main Content -->
+                <div class="lg:col-span-8 space-y-20">
+                    
+                    <!-- Blog Post 1 -->
+                    <article class="blog-card pb-12">
+                        <span class="text-[10px] uppercase tracking-widest text-gray-400 mb-4 block">May 15, 2026 · Pedagogy</span>
+                        <h3 class="heading-serif text-3xl md:text-4xl text-gray-900 mb-6 group cursor-pointer">
+                            <a href="#" class="hover:text-brand-blue transition-colors">AI in the Arabic Classroom: Friend or Foe?</a>
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed mb-8">
+                            As generative AI continues to reshape the educational landscape, Arabic instructors are faced with unique challenges. This post explores how we can leverage large language models like WriteWise to enhance student writing...
+                        </p>
+                        <a href="#" class="text-brand-blue font-bold text-[10px] uppercase tracking-widest border-b-2 border-nude hover:border-brand-blue transition-all pb-1">Read Reflection</a>
+                    </article>
+
+                    <!-- Blog Post 2 -->
+                    <article class="blog-card pb-12">
+                        <span class="text-[10px] uppercase tracking-widest text-gray-400 mb-4 block">April 22, 2026 · Linguistics</span>
+                        <h3 class="heading-serif text-3xl md:text-4xl text-gray-900 mb-6">
+                            <a href="#" class="hover:text-brand-blue transition-colors">Mapping Dialectal Shifts in Digital Spaces</a>
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed mb-8">
+                            Digital communication is accelerating the blending of MSA and local dialects. By analyzing social media corpora, we can observe real-time changes in phonology and syntax that traditional textbooks often overlook...
+                        </p>
+                        <a href="#" class="text-brand-blue font-bold text-[10px] uppercase tracking-widest border-b-2 border-nude hover:border-brand-blue transition-all pb-1">Read Reflection</a>
+                    </article>
+
+                    <!-- Pagination -->
+                    <nav class="flex justify-center space-x-4 pt-10">
+                        <a href="#" class="w-10 h-10 flex items-center justify-center border border-brand-blue text-brand-blue bg-white font-bold text-xs">1</a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center border border-gray-100 text-gray-400 hover:border-brand-blue hover:text-brand-blue transition-all text-xs">2</a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center border border-gray-100 text-gray-400 hover:border-brand-blue hover:text-brand-blue transition-all text-xs">→</a>
+                    </nav>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="lg:col-span-4 space-y-16">
+                    
+                    <!-- Media & Press -->
+                    <div>
+                        <h4 class="heading-serif text-xl text-gray-900 mb-6 italic border-b border-nude pb-2">Media & Press</h4>
+
+                        <div class="space-y-6">
+                            <div>
+                                <p class="text-[9px] uppercase tracking-widest text-gray-400 mb-3">Videos</p>
+                                <div class="space-y-4">
+                                    <a href="https://youtu.be/wCnHScxCWks" target="_blank" rel="noopener noreferrer" class="block group">
+                                        <h5 class="text-xs font-bold text-gray-700 leading-snug group-hover:text-brand-blue transition-colors">ICON-POSTALL 2024 UM</h5>
+                                    </a>
+                                    <a href="https://youtu.be/--ElnJgsLMg" target="_blank" rel="noopener noreferrer" class="block group">
+                                        <h5 class="text-xs font-bold text-gray-700 leading-snug group-hover:text-brand-blue transition-colors">2025 Consortium of Middle East National Resource Centers Language Workshop</h5>
+                                    </a>
+                                    <a href="https://youtu.be/Ucu4oxt2rNI" target="_blank" rel="noopener noreferrer" class="block group">
+                                        <h5 class="text-xs font-bold text-gray-700 leading-snug group-hover:text-brand-blue transition-colors">Creating Interactive Websites for Arabic Teaching with Gemini</h5>
+                                    </a>
+                                    <a href="https://youtu.be/1_CNydljNh8" target="_blank" rel="noopener noreferrer" class="block group">
+                                        <h5 class="text-xs font-bold text-gray-700 leading-snug group-hover:text-brand-blue transition-colors">Intensive Academic Arabic at Indiana University</h5>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="border-t border-gray-50 pt-4">
+                                <p class="text-[9px] uppercase tracking-widest text-gray-400 mb-3">News Articles</p>
+                                <div class="space-y-4">
+                                    <a href="https://www.heraldtimesonline.com/story/news/education/campus/2024/08/08/indiana-university-arabic-professor-encourages-chatgpt-gemini-use/74650746007/" target="_blank" rel="noopener noreferrer" class="block group">
+                                        <h5 class="text-xs font-bold text-gray-700 leading-snug group-hover:text-brand-blue transition-colors">Why this Indiana University professor encourages his students to use ChatGPT</h5>
+                                    </a>
+                                    <a href="https://news.iu.edu/live/news/37211-ius-leadership-in-world-language-instruction" target="_blank" rel="noopener noreferrer" class="block group">
+                                        <h5 class="text-xs font-bold text-gray-700 leading-snug group-hover:text-brand-blue transition-colors">IU’s leadership in world language instruction includes integration of AI learning tools</h5>
+                                    </a>
+                                    <a href="https://www.alecso.org/nsite/ar/newscat/3850-%D8%A7%D9%84%D8%A3%D9%84%D9%83%D8%B3%D9%88-%D8%AA%D8%AD%D8%AA%D8%B6%D9%86-%D9%88%D8%B1%D8%B4%D8%A9-%D8%AA%D8%AF%D8%B1%D9%8A%D8%A8%D9%8A%D8%A9-%D8%AD%D9%88%D9%84-%D8%AA%D8%AF%D8%B1%D9%8A%D8%B3-%D8%A7%D9%84%D9%84%D8%BA%D8%A9-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9" target="_blank" rel="noopener noreferrer" class="block group">
+                                        <h5 class="text-xs font-bold text-gray-700 leading-snug group-hover:text-brand-blue transition-colors">الألكسو تحتضن ورشة تدريبية حول تدريس اللغة العربية</h5>
+                                    </a>
+                                    <a href="https://celt.leeds.ac.uk/events/ai-in-the-classroom-practical-insights-for-teaching-foreign-or-second-language-with-generative-ai-tools/" target="_blank" rel="noopener noreferrer" class="block group">
+                                        <h5 class="text-xs font-bold text-gray-700 leading-snug group-hover:text-brand-blue transition-colors">AI in the Classroom: Practical Insights for Teaching Foreign or Second Language with Generative AI Tools</h5>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Categories -->
+                    <div>
+                        <h4 class="heading-serif text-xl text-gray-900 mb-6 italic border-b border-nude pb-2">Categories</h4>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="text-[10px] uppercase tracking-widest text-gray-500 hover:text-brand-blue transition-all flex justify-between">Linguistics <span>(12)</span></a></li>
+                            <li><a href="#" class="text-[10px] uppercase tracking-widest text-gray-500 hover:text-brand-blue transition-all flex justify-between">Pedagogy <span>(8)</span></a></li>
+                            <li><a href="#" class="text-[10px] uppercase tracking-widest text-gray-500 hover:text-brand-blue transition-all flex justify-between">EdTech <span>(5)</span></a></li>
+                            <li><a href="#" class="text-[10px] uppercase tracking-widest text-gray-500 hover:text-brand-blue transition-all flex justify-between">Culture <span>(14)</span></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Author Mini Profile -->
+                    <div class="bg-cream p-8 rounded-sm">
+                        <h4 class="heading-serif text-xl text-gray-900 mb-4 italic">About the Author</h4>
+                        <p class="text-xs text-gray-500 leading-relaxed mb-6">
+                            Dr. Attia Youseif is the Associate Director of Middlebury Arabic School and a Senior Lecturer at Indiana University, specializing in Arabic linguistics and AI-powered pedagogy.
+                        </p>
+                        <a href="about.html" class="text-brand-blue font-bold text-[10px] uppercase tracking-widest border-b border-brand-blue">View Profile</a>
+                    </div>
+                </aside>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-16 px-6 text-white border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-10 md:mb-0 text-center md:text-left">
+                <h2 class="heading-serif text-3xl font-light mb-2">Attia Youseif</h2>
+                <p class="text-[10px] uppercase tracking-[0.3em] text-cream/40">Academic Portfolio • Indiana University</p>
+            </div>
+            <div class="flex space-x-12 mb-10 md:mb-0">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="text-xs uppercase tracking-widest text-cream/60 hover:text-white transition-colors">Home</a>
+                    <a href="about.html" class="text-xs uppercase tracking-widest text-cream/60 hover:text-white transition-colors">About</a>
+                </div>
+                <div class="flex flex-col space-y-2">
+                    <a href="Research.html" class="text-xs uppercase tracking-widest text-cream/60 hover:text-white transition-colors">Research</a>
+                    <a href="Blog.html" class="text-xs uppercase tracking-widest text-cream/60 hover:text-white transition-colors">Blog</a>
+                </div>
+            </div>
+            <div class="text-center md:text-right">
+                <div class="flex justify-center md:justify-end space-x-6 mb-4">
+                    <a href="https://www.linkedin.com/in/attia-youseif-4a5aab129/" target="_blank" rel="noopener noreferrer" class="text-xl text-cream/50 hover:text-white transition-colors"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/AttiaYouseif" target="_blank" rel="noopener noreferrer" class="text-xl text-cream/50 hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                </div>
+                <p class="text-[10px] uppercase tracking-widest text-cream/30">© 2026 Dr. Attia Youseif. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+        const body = document.body;
+
+        function toggleMenu() {
+            body.classList.toggle('menu-open');
+            mobileMenu.classList.toggle('translate-x-full');
+            mobileOverlay.classList.toggle('hidden');
+            setTimeout(() => mobileOverlay.classList.toggle('opacity-0'), 10);
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+        closeMenu.addEventListener('click', toggleMenu);
+        mobileOverlay.addEventListener('click', toggleMenu);
+    </script>
+</body>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommended Readings | Dr. Attia Youseif</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Cormorant Garamond (Headings) and Public Sans (Body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Public+Sans:wght@200;300;400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-blue': '#1a2b56', 
+                        'cream': '#FDF9F8',
+                        'nude': '#E9DAD2',
+                        'accent': '#D8E3FF',
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Public Sans', 'sans-serif'],
+                        arabic: ['Amiri', 'serif']
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+            color: #333;
+            background-color: #fff;
+            scroll-behavior: smooth;
+        }
+        .heading-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .nav-link {
+            letter-spacing: 0.15em;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            opacity: 0.7;
+        }
+        .section-tag {
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            color: #666;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .reading-card {
+            background: #fff;
+            transition: all 0.4s ease;
+            border-left: 1px solid #f1f1f1;
+            padding-left: 2rem;
+        }
+        .reading-card:hover {
+            border-left-color: #1a2b56;
+            border-left-width: 4px;
+            padding-left: calc(2rem - 3px);
+        }
+        .sticky-toc {
+            position: sticky;
+            top: 120px;
+        }
+        /* Mobile menu animation */
+        #mobile-menu {
+            transition: transform 0.4s ease-in-out;
+        }
+        .menu-open #mobile-menu {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Top Branding & Navigation -->
+    <header class="w-full bg-brand-blue text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col items-center">
+            
+            <div class="w-full flex justify-between items-center mb-6 text-[10px] uppercase tracking-widest text-white/70">
+                <div class="flex space-x-4">
+                    <a href="https://www.linkedin.com/in/attia-youseif-4a5aab129/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://x.com/AttiaYouseif" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                </div>
+                <div class="flex items-center space-x-2"></div>
+            </div>
+
+            <div class="text-center mb-6">
+                <a href="index.html" class="block group">
+                    <h1 class="heading-serif text-4xl md:text-6xl font-bold tracking-tight text-white group-hover:text-nude transition-colors">
+                        Attia Youseif
+                    </h1>
+                    <span class="block text-[10px] md:text-xs uppercase tracking-[0.4em] text-white/60 mt-2">
+                        Senior Lecturer of Arabic • Indiana University
+                    </span>
+                </a>
+            </div>
+
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="Research.html" class="nav-link">Research</a>
+                <a href="Teaching.html" class="nav-link">Teaching</a>
+                <a href="Service.html" class="nav-link">Service</a>
+                <a href="Blog.html" class="nav-link">Blog</a>
+                <a href="Media.html" class="nav-link">Media</a>
+                <a href="Recommended.html" class="nav-link font-bold border-b border-white">Recommended</a>
+                <a href="contact.html" class="btn-brand">Contact</a>
+            </nav>
+
+            <button id="menu-toggle" class="lg:hidden absolute right-6 top-1/2 -translate-y-1/2 p-2">
+                <div class="w-6 h-0.5 bg-white mb-1.5"></div>
+                <div class="w-6 h-0.5 bg-white mb-1.5"></div>
+                <div class="w-6 h-0.5 bg-white"></div>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav -->
+    <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-[60] hidden opacity-0 transition-opacity duration-300"></div>
+    <aside id="mobile-menu" class="fixed top-0 right-0 h-full w-80 bg-white z-[70] translate-x-full shadow-2xl p-10 flex flex-col">
+        <button id="close-menu" class="self-end text-3xl font-light mb-10 text-brand-blue">&times;</button>
+        <nav class="flex flex-col space-y-6">
+            <a href="index.html" class="nav-link text-xl text-gray-600">Home</a>
+            <a href="about.html" class="nav-link text-xl text-gray-600">About</a>
+            <a href="Research.html" class="nav-link text-xl text-gray-600">Research</a>
+            <a href="Teaching.html" class="nav-link text-xl text-gray-600">Teaching</a>
+            <a href="Service.html" class="nav-link text-xl text-gray-600">Service</a>
+            <a href="Blog.html" class="nav-link text-xl text-gray-600">Blog</a>
+            <a href="Media.html" class="nav-link text-xl text-gray-600">Media</a>
+            <a href="Recommended.html" class="nav-link text-xl text-brand-blue font-bold">Recommended</a>
+            <a href="contact.html" class="btn-brand text-center mt-4">Contact</a>
+        </nav>
+    </aside>
+
+    <main>
+        <!-- Page Header -->
+        <section class="py-24 bg-cream border-b border-gray-100">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <span class="section-tag">Curated Scholarship</span>
+                <h2 class="heading-serif text-5xl md:text-7xl text-gray-900 mb-6 italic">Recommended Readings</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto text-lg">
+                    A cleaned annotated bibliography organized by the four skills and Artificial Intelligence, featuring recent peer-reviewed and journal-hosted sources in Arabic pedagogy.
+                </p>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <section class="py-24 px-6 bg-white">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16">
+                
+                <!-- Sticky Table of Contents -->
+                <aside class="lg:col-span-3 hidden lg:block">
+                    <div class="sticky-toc">
+                        <h4 class="heading-serif text-xl text-gray-900 mb-8 border-b border-nude pb-4 italic">Categories</h4>
+                        <ul class="space-y-4">
+                            <li><a href="#listening" class="text-[10px] uppercase tracking-[0.2em] text-gray-400 hover:text-brand-blue transition-all flex items-center"><i class="fas fa-headphones-alt mr-3"></i> Listening</a></li>
+                            <li><a href="#speaking" class="text-[10px] uppercase tracking-[0.2em] text-gray-400 hover:text-brand-blue transition-all flex items-center"><i class="fas fa-comment-dots mr-3"></i> Speaking</a></li>
+                            <li><a href="#reading" class="text-[10px] uppercase tracking-[0.2em] text-gray-400 hover:text-brand-blue transition-all flex items-center"><i class="fas fa-book-open mr-3"></i> Reading</a></li>
+                            <li><a href="#writing" class="text-[10px] uppercase tracking-[0.2em] text-gray-400 hover:text-brand-blue transition-all flex items-center"><i class="fas fa-pen-nib mr-3"></i> Writing</a></li>
+                            <li><a href="#ai" class="text-[10px] uppercase tracking-[0.2em] text-gray-400 hover:text-brand-blue transition-all flex items-center"><i class="fas fa-microchip mr-3"></i> Artificial Intelligence</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Readings Feed -->
+                <div class="lg:col-span-9 space-y-32">
+                    
+                    <!-- Listening Section -->
+                    <section id="listening">
+                        <div class="mb-12">
+                            <span class="section-tag">Skill One</span>
+                            <h3 class="heading-serif text-4xl text-gray-900 italic">Listening Pedagogy</h3>
+                        </div>
+                        <div class="space-y-12">
+                            <article class="reading-card">
+                                <h4 class="heading-serif text-2xl text-gray-900 mb-2">Arabic Genre Pedagogy: Teaching, Learning, and Assessing in Context (2024)</h4>
+                                <p class="text-gray-400 text-[10px] uppercase tracking-widest mb-4">Abdel-Malek, M. • Routledge</p>
+                                <p class="text-gray-600 text-sm italic mb-6">"Strong foundation for listening pedagogy linking spoken genres to ACTFL-oriented practice."</p>
+                                <a href="https://www.routledge.com/Arabic-Genre-Pedagogy-Teaching-Learning-and-Assessing-in-Context/Abdel-Malek/p/book/9781032044552" target="_blank" class="text-brand-blue text-[10px] font-bold uppercase tracking-widest border-b border-brand-blue hover:text-nude transition-colors">View Resource</a>
+                            </article>
+                            <article class="reading-card">
+                                <h4 class="heading-serif text-2xl text-gray-900 mb-2">Integrating technology into the Arabic language curriculum (2025)</h4>
+                                <p class="text-gray-400 text-[10px] uppercase tracking-widest mb-4">ScienceDirect</p>
+                                <p class="text-gray-600 text-sm italic mb-6">"A systematic review for understanding technology incorporation in digitally mediated receptive-skill work."</p>
+                                <a href="https://www.sciencedirect.com/science/article/pii/S2590291125007028" target="_blank" class="text-brand-blue text-[10px] font-bold uppercase tracking-widest border-b border-brand-blue">View Resource</a>
+                            </article>
+                            <article class="reading-card">
+                                <h4 class="heading-serif text-2xl text-gray-900 mb-2">The Impact of Metacognitive Awareness on Arabic Listening (2025)</h4>
+                                <p class="text-gray-400 text-[10px] uppercase tracking-widest mb-4">ScienceDirect</p>
+                                <p class="text-gray-600 text-sm italic mb-6">"Helpful for designing instruction that includes strategy training, planning, and self-evaluation."</p>
+                                <a href="https://www.sciencedirect.com/science/article/pii/S1874350125000318" target="_blank" class="text-brand-blue text-[10px] font-bold uppercase tracking-widest border-b border-brand-blue">View Resource</a>
+                            </article>
+                        </div>
+                    </section>
+
+                    <!-- Speaking Section -->
+                    <section id="speaking">
+                        <div class="mb-12">
+                            <span class="section-tag">Skill Two</span>
+                            <h3 class="heading-serif text-4xl text-gray-900 italic">Speaking & Orality</h3>
+                        </div>
+                        <div class="space-y-12">
+                            <article class="reading-card">
+                                <h4 class="heading-serif text-2xl text-gray-900 mb-2">Arabic language tutors' beliefs on including regional varieties (2025)</h4>
+                                <p class="text-gray-400 text-[10px] uppercase tracking-widest mb-4">ScienceDirect</p>
+                                <p class="text-gray-600 text-sm italic mb-6">"Addresses oral competence, learner identity, and communicative appropriateness across dialects."</p>
+                                <a href="https://www.sciencedirect.com/science/article/pii/S0898589825000440" target="_blank" class="text-brand-blue text-[10px] font-bold uppercase tracking-widest border-b border-brand-blue">View Resource</a>
+                            </article>
+                            <article class="reading-card">
+                                <h4 class="heading-serif text-2xl text-gray-900 mb-2">Towards an integrative, communicative, and technology-based approach (2025)</h4>
+                                <p class="text-gray-400 text-[10px] uppercase tracking-widest mb-4">INJOTEL</p>
+                                <p class="text-gray-600 text-sm italic mb-6">"Frames Arabic teaching through a bridge between traditional practice and digital methods."</p>
+                                <a href="https://injoqast.net/index.php/INJOTEL/article/download/523/509/1534" target="_blank" class="text-brand-blue text-[10px] font-bold uppercase tracking-widest border-b border-brand-blue">View Resource</a>
+                            </article>
+                        </div>
+                    </section>
+
+                    <!-- Reading Section -->
+                    <section id="reading">
+                        <div class="mb-12">
+                            <span class="section-tag">Skill Three</span>
+                            <h3 class="heading-serif text-4xl text-gray-900 italic">Reading & Textual Analysis</h3>
+                        </div>
+                        <div class="space-y-12">
+                            <article class="reading-card">
+                                <h4 class="heading-serif text-2xl text-gray-900 mb-2">Evaluation of AI-generated reading comprehension materials (2025)</h4>
+                                <p class="text-gray-400 text-[10px] uppercase tracking-widest mb-4">Taylor & Francis Online</p>
+                                <p class="text-gray-600 text-sm italic mb-6">"Tests AI promise and linguistic limitations in producing comprehension texts."</p>
+                                <a href="https://www.tandfonline.com/doi/full/10.1080/09588221.2025.2474037" target="_blank" class="text-brand-blue text-[10px] font-bold uppercase tracking-widest border-b border-brand-blue">View Resource</a>
+                            </article>
+                            <article class="reading-card">
+                                <h4 class="heading-serif text-2xl text-gray-900 mb-2">Can AI-generated materials help? Potential and pitfalls (2024)</h4>
+                                <p class="text-gray-400 text-[10px] uppercase tracking-widest mb-4">Emirates Scholar</p>
+                                <p class="text-gray-600 text-sm italic mb-6">"Examines text quality, vocabulary selection, and error patterns in automated materials."</p>
+                                <a href="https://www.emiratesscholar.com/can-ai-generated-materials-help-in-arabic-teaching-a-study-of-potential-and-pitfall/" target="_blank" class="text-brand-blue text-[10px] font-bold uppercase tracking-widest border-b border-brand-blue">View Resource</a>
+                            </article>
+                        </div>
+                    </section>
+
+                    <!-- Writing Section -->
+                    <section id="writing">
+                        <div class="mb-12">
+                            <span class="section-tag">Skill Four</span>
+                            <h3 class="heading-serif text-4xl text-gray-900 italic">Writing & Discourse</h3>
+                        </div>
+                        <div class="space-y-12">
+                            <article class="reading-card">
+                                <h4 class="heading-serif text-2xl text-gray-900 mb-2">Exploring cognitive processes in Arabic dictation (2025)</h4>
+                                <p class="text-gray-400 text-[10px] uppercase tracking-widest mb-4">ScienceDirect</p>
+                                <p class="text-gray-600 text-sm italic mb-6">"Reveals challenges of production relevant to spelling, transcription, and literacy."</p>
+                                <a href="https://www.sciencedirect.com/science/article/pii/S0001691825014325" target="_blank" class="text-brand-blue text-[10px] font-bold uppercase tracking-widest border-b border-brand-blue">View Resource</a>
+                            </article>
+                            <article class="reading-card">
+                                <h4 class="heading-serif text-2xl text-gray-900 mb-2">Teaching Arabic Language in the Era of AI (2025)</h4>
+                                <p class="text-gray-400 text-[10px] uppercase tracking-widest mb-4">JSREP Journals</p>
+                                <p class="text-gray-600 text-sm italic mb-6">"Discusses how AI changes feedback loops and text generation in writing pedagogy."</p>
+                                <a href="https://jsrep.journals.ekb.eg/article_489235.html?lang=en" target="_blank" class="text-brand-blue text-[10px] font-bold uppercase tracking-widest border-b border-brand-blue">View Resource</a>
+                            </article>
+                        </div>
+                    </section>
+
+                    <!-- AI Section -->
+                    <section id="ai">
+                        <div class="mb-12">
+                            <span class="section-tag">New Horizon</span>
+                            <h3 class="heading-serif text-4xl text-gray-900 italic">Artificial Intelligence</h3>
+                        </div>
+                        <div class="space-y-12">
+                            <article class="reading-card">
+                                <h4 class="heading-serif text-2xl text-gray-900 mb-2">Generative AI Implementation and Assessment (2025)</h4>
+                                <p class="text-gray-400 text-[10px] uppercase tracking-widest mb-4">ScienceDirect</p>
+                                <p class="text-gray-600 text-sm italic mb-6">"Insights into how instructors are adopting and assessing GenAI in the classroom."</p>
+                                <a href="https://www.sciencedirect.com/science/article/pii/S2155687325000057" target="_blank" class="text-brand-blue text-[10px] font-bold uppercase tracking-widest border-b border-brand-blue">View Resource</a>
+                            </article>
+                            <article class="reading-card">
+                                <h4 class="heading-serif text-2xl text-gray-900 mb-2">Generative AI for Learning: Opportunities & Ethics (2024)</h4>
+                                <p class="text-gray-400 text-[10px] uppercase tracking-widest mb-4">Academia.edu</p>
+                                <p class="text-gray-600 text-sm italic mb-6">"A vital framework for ethical issues and pedagogical opportunities in the Arabic context."</p>
+                                <a href="https://www.academia.edu/146004084/Generative_AI_for_Learning_and_Teaching_Arabic_Opportunities_Challenges_and_Ethical_Considerations_2024_" target="_blank" class="text-brand-blue text-[10px] font-bold uppercase tracking-widest border-b border-brand-blue">View Resource</a>
+                            </article>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-16 px-6 text-white border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-10 md:mb-0 text-center md:text-left">
+                <h2 class="heading-serif text-3xl font-light mb-2">Attia Youseif</h2>
+                <p class="text-[10px] uppercase tracking-[0.3em] text-cream/40">Academic Portfolio • Indiana University</p>
+            </div>
+            <div class="flex space-x-12 mb-10 md:mb-0">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="text-xs uppercase tracking-widest text-cream/60 hover:text-white transition-colors">Home</a>
+                    <a href="about.html" class="text-xs uppercase tracking-widest text-cream/60 hover:text-white transition-colors">About</a>
+                </div>
+                <div class="flex flex-col space-y-2">
+                    <a href="Readings.html" class="text-xs uppercase tracking-widest text-cream/60 hover:text-white transition-colors">Readings</a>
+                    <a href="Blog.html" class="text-xs uppercase tracking-widest text-cream/60 hover:text-white transition-colors">Blog</a>
+                </div>
+            </div>
+            <div class="text-center md:text-right">
+                <div class="flex justify-center md:justify-end space-x-6 mb-4">
+                    <a href="https://www.linkedin.com/in/attia-youseif-4a5aab129/" target="_blank" rel="noopener noreferrer" class="text-xl text-cream/50 hover:text-white transition-colors"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/AttiaYouseif" target="_blank" rel="noopener noreferrer" class="text-xl text-cream/50 hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                    <a href="mailto:ayouseif@iu.edu" class="text-xl text-cream/50 hover:text-white transition-colors"><i class="fas fa-envelope"></i></a>
+                </div>
+                <p class="text-[10px] uppercase tracking-widest text-cream/30">© 2024 Dr. Attia Youseif. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+        const body = document.body;
+
+        function toggleMenu() {
+            body.classList.toggle('menu-open');
+            mobileMenu.classList.toggle('translate-x-full');
+            mobileOverlay.classList.toggle('hidden');
+            setTimeout(() => mobileOverlay.classList.toggle('opacity-0'), 10);
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+        closeMenu.addEventListener('click', toggleMenu);
+        mobileOverlay.addEventListener('click', toggleMenu);
+    </script>
+</body>
+</html>

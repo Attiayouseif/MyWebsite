@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaching | Dr. Attia Youseif</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Cormorant Garamond (Headings) and Public Sans (Body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Public+Sans:wght@200;300;400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-blue': '#1a2b56', 
+                        'cream': '#FDF9F8',
+                        'nude': '#E9DAD2',
+                        'accent': '#D8E3FF',
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Public Sans', 'sans-serif'],
+                        arabic: ['Amiri', 'serif']
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+            color: #333;
+            background-color: #fff;
+        }
+        .heading-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .nav-link {
+            letter-spacing: 0.15em;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            opacity: 0.7;
+        }
+        .btn-brand {
+            background-color: #1a2b56;
+            color: white;
+            padding: 0.6rem 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.75rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .btn-brand:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+        .section-tag {
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            color: #666;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .arabic-text {
+            font-family: 'Amiri', serif;
+        }
+        .teaching-card {
+            background: #fff;
+            transition: all 0.4s ease;
+            border: 1px solid #f1f1f1;
+        }
+        .teaching-card:hover {
+            border-color: #1a2b56;
+            transform: translateY(-4px);
+        }
+        /* Mobile menu animation */
+        #mobile-menu {
+            transition: transform 0.4s ease-in-out;
+        }
+        .menu-open #mobile-menu {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Top Branding & Language -->
+    <header class="w-full bg-brand-blue text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col items-center">
+            
+            <div class="w-full flex justify-between items-center mb-6 text-[10px] uppercase tracking-widest text-white/70">
+                <div class="flex space-x-4">
+                    <a href="https://www.linkedin.com/in/attia-youseif-4a5aab129/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://x.com/AttiaYouseif" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                </div>
+                <div class="flex items-center space-x-2"></div>
+            </div>
+
+            <div class="text-center mb-6">
+                <a href="index.html" class="block group">
+                    <h1 class="heading-serif text-4xl md:text-6xl font-bold tracking-tight text-white group-hover:text-nude transition-colors">
+                        Attia Youseif
+                    </h1>
+                    <span class="block text-[10px] md:text-xs uppercase tracking-[0.4em] text-white/60 mt-2 text-center">
+                        Senior Lecturer of Arabic • Indiana University
+                    </span>
+                </a>
+            </div>
+
+            <nav class="hidden lg:flex items-center space-x-6 xl:space-x-10">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="Research.html" class="nav-link">Research</a>
+                <a href="Teaching.html" class="nav-link font-bold border-b border-white">Teaching</a>
+                <a href="Service.html" class="nav-link">Service</a>
+                <a href="Blog.html" class="nav-link">Blog</a>
+                <a href="Media.html" class="nav-link">Media</a>
+                <a href="Recommended.html" class="nav-link">Recommended</a>
+                <a href="contact.html" class="btn-brand">Contact</a>
+            </nav>
+
+            <button id="menu-toggle" class="lg:hidden absolute right-6 top-1/2 -translate-y-1/2 p-2">
+                <div class="w-6 h-0.5 bg-white mb-1.5"></div>
+                <div class="w-6 h-0.5 bg-white mb-1.5"></div>
+                <div class="w-6 h-0.5 bg-white"></div>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav -->
+    <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-[60] hidden opacity-0 transition-opacity duration-300"></div>
+    <aside id="mobile-menu" class="fixed top-0 right-0 h-full w-80 bg-white z-[70] translate-x-full shadow-2xl p-10 flex flex-col">
+        <button id="close-menu" class="self-end text-3xl font-light mb-10 text-brand-blue">&times;</button>
+        <nav class="flex flex-col space-y-6">
+            <a href="index.html" class="nav-link text-xl text-gray-600">Home</a>
+            <a href="about.html" class="nav-link text-xl text-gray-600">About</a>
+            <a href="Research.html" class="nav-link text-xl text-gray-600">Research</a>
+            <a href="Teaching.html" class="nav-link text-xl text-brand-blue font-bold">Teaching</a>
+            <a href="Service.html" class="nav-link text-xl text-gray-600">Service</a>
+            <a href="Blog.html" class="nav-link text-xl text-gray-600">Blog</a>
+            <a href="Media.html" class="nav-link text-xl text-gray-600">Media</a>
+            <a href="Recommended.html" class="nav-link text-xl text-gray-600">Recommended</a>
+            <a href="contact.html" class="btn-brand text-center mt-4">Contact</a>
+        </nav>
+    </aside>
+
+    <main>
+        <!-- Page Header -->
+        <section class="py-24 bg-cream border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-16 text-left">
+                    <div class="flex-shrink-0">
+                        <div class="relative group">
+                            <div class="absolute -inset-4 border border-brand-blue/10 rounded-full scale-105 group-hover:scale-100 transition-transform duration-700"></div>
+                            <div class="w-44 h-44 sm:w-52 sm:h-52 lg:w-64 lg:h-64 rounded-full overflow-hidden border-8 border-white shadow-2xl relative z-10">
+                                <img src="assets/images/teaching.png" alt="Dr. Attia Youseif teaching" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="max-w-4xl">
+                        <span class="section-tag">Academic Pedagogy</span>
+                        <h2 class="heading-serif text-5xl md:text-7xl text-gray-900 mb-6 italic">Teaching Philosophy</h2>
+                        <p class="text-gray-500 max-w-2xl italic text-lg md:text-xl">
+                            "My teaching combines communicative language instruction with cultural competence and project-based learning, so students can engage Arabic as language, discourse, and lived experience."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Identity & Pillars -->
+        <section class="py-24 px-6 bg-white border-b border-gray-50">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <span class="section-tag">Core Methodology</span>
+                    <h3 class="heading-serif text-4xl text-gray-900 mb-8">Pedagogical Framework</h3>
+                    <div class="space-y-6 text-gray-600 leading-relaxed">
+                        <p>
+                            Dr. Youseif instructs Arabic language courses across all proficiency levels, from novice to superior. His graduate-level instruction includes the core <span class="font-semibold">Technology in the Arabic Language Classroom</span> for the TAFL MA program, equipping future educators with digital fluency.
+                        </p>
+                        <p>
+                            His curriculum design emphasizes advanced academic discourse, intercultural competence, and the practical application of linguistics in contemporary Arab issues, media, and professional communication.
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-brand-blue p-10 md:p-16 text-white rounded-sm">
+                    <h3 class="heading-serif text-3xl mb-8 italic text-nude">Strategic Pillars</h3>
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <i class="fas fa-check text-nude mt-1"></i>
+                            <span class="text-sm tracking-wide opacity-90">Project-Based Language Learning (PBLL) for advanced multiliteracy.</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i class="fas fa-check text-nude mt-1"></i>
+                            <span class="text-sm tracking-wide opacity-90">Integration of AI for immediate feedback and writing evaluation.</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i class="fas fa-check text-nude mt-1"></i>
+                            <span class="text-sm tracking-wide opacity-90">Authentic materials focus: Media, Cinema, and Contemporary Challenges.</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i class="fas fa-check text-nude mt-1"></i>
+                            <span class="text-sm tracking-wide opacity-90">Global Classroom collaboration (AUB/AUC) on minority representation.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership in Curriculum -->
+        <section class="py-24 px-6 bg-cream">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-20">
+                    <span class="section-tag">Academic Leadership</span>
+                    <h2 class="heading-serif text-5xl text-gray-900">Curriculum & Tutoring</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Middlebury Role -->
+                    <article class="teaching-card p-10 md:p-14">
+                        <div class="w-12 h-12 bg-nude text-brand-blue flex items-center justify-center rounded-full mb-8">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="heading-serif text-2xl mb-4 text-gray-900 italic">Middlebury Arabic School</h3>
+                        <p class="text-gray-400 text-[10px] uppercase tracking-widest mb-4">Associate Director (2025 – Present)</p>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-8">
+                            Supervising curriculum development and assessment design across all proficiency levels. Overseeing placement examinations and pedagogical evaluation to ensure standard-aligned language acquisition.
+                        </p>
+                    </article>
+
+                    <!-- Flagship Tutoring -->
+                    <article class="teaching-card p-10 md:p-14">
+                        <div class="w-12 h-12 bg-nude text-brand-blue flex items-center justify-center rounded-full mb-8">
+                            <i class="fas fa-flag"></i>
+                        </div>
+                        <h3 class="heading-serif text-2xl mb-4 text-gray-900 italic">Arabic Flagship Program</h3>
+                        <p class="text-gray-400 text-[10px] uppercase tracking-widest mb-4">Director of Tutoring (2020 – Present)</p>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-8">
+                            Managing a high-performance network focused on Superior-level proficiency. Developed national online training modules for language instructors and established the Tutoring Community of Flagship Programs (TCFP).
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Innovation Section -->
+        <section class="py-24 px-6 bg-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-16">
+                    <span class="section-tag">Educational Technology</span>
+                    <h2 class="heading-serif text-5xl text-gray-900">AI-Powered Tools</h2>
+                    <p class="text-gray-500 mt-4 max-w-xl">Developing customized GPT-based tools to support scaffolded learning and self-directed practice.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="p-8 border border-gray-100 bg-gray-50">
+                        <h4 class="heading-serif text-xl mb-3 text-brand-blue">WriteWise</h4>
+                        <p class="text-xs text-gray-600 leading-relaxed italic">Writing evaluation and feedback tool aligned with ACTFL, ILR, and CEFR guidelines for precision tutoring.</p>
+                    </div>
+                    <div class="p-8 border border-gray-100 bg-gray-50">
+                        <h4 class="heading-serif text-xl mb-3 text-brand-blue">ArabicGPT</h4>
+                        <p class="text-xs text-gray-600 leading-relaxed italic">Assisting instructors in designing proficiency-tailored classroom activities and authentic task sequences.</p>
+                    </div>
+                    <div class="p-8 border border-gray-100 bg-gray-50">
+                        <h4 class="heading-serif text-xl mb-3 text-brand-blue">Arabic Listening Station</h4>
+                        <p class="text-xs text-gray-600 leading-relaxed italic">A dedicated platform for authentic listening materials categorized by proficiency levels from Novice to Superior.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Catalog -->
+        <section class="py-24 px-6 bg-brand-blue text-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-16 text-center">
+                    <span class="section-tag !text-nude">Curriculum Design</span>
+                    <h2 class="heading-serif text-5xl">Courses Created & Taught</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div class="space-y-4">
+                        <h4 class="heading-serif text-2xl italic text-nude">Content Courses</h4>
+                        <ul class="text-sm space-y-2 opacity-80">
+                            <li>• Professional Academic MSA</li>
+                            <li>• Arabic Media & Critical Analysis</li>
+                            <li>• Contemporary Challenges in the Arab World</li>
+                            <li>• Minorities in the Middle East (Global Classroom)</li>
+                            <li>• Arabic Cinema</li>
+                            <li>• Daily Life in the Arab World</li>
+                        </ul>
+                    </div>
+                    <div class="space-y-4">
+                        <h4 class="heading-serif text-2xl italic text-nude">Applied & Specialty</h4>
+                        <ul class="text-sm space-y-2 opacity-80">
+                            <li>• Arabic Non-Verbal Communication</li>
+                            <li>• Introduction to Arabic Forensic Linguistics</li>
+                            <li>• Arabic Business Communication & Marketing</li>
+                            <li>• Culture & Identity: Taste of the Middle East</li>
+                            <li>• Hospitality between Arab & American Cultures</li>
+                        </ul>
+                    </div>
+                    <div class="space-y-4">
+                        <h4 class="heading-serif text-2xl italic text-nude">Graduate & Intensive</h4>
+                        <ul class="text-sm space-y-2 opacity-80">
+                            <li>• Technology in the Arabic Classroom (MA)</li>
+                            <li>• Error Analysis in Non-Native Writing (MA)</li>
+                            <li>• Arabic for Public Speaking</li>
+                            <li>• Arabic Pronunciation (Phonology)</li>
+                            <li>• Egyptian Dialect I & II</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-16 px-6 text-white border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-10 md:mb-0 text-center md:text-left">
+                <h2 class="heading-serif text-3xl font-light mb-2">Attia Youseif</h2>
+                <p class="text-[10px] uppercase tracking-[0.3em] text-cream/40">Academic Portfolio • Indiana University</p>
+            </div>
+            <div class="flex space-x-12 mb-10 md:mb-0">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="text-xs uppercase tracking-widest text-cream/60 hover:text-white transition-colors">Home</a>
+                    <a href="about.html" class="text-xs uppercase tracking-widest text-cream/60 hover:text-white transition-colors">About</a>
+                </div>
+                <div class="flex flex-col space-y-2">
+                    <a href="Research.html" class="text-xs uppercase tracking-widest text-cream/60 hover:text-white transition-colors">Research</a>
+                    <a href="Blog.html" class="text-xs uppercase tracking-widest text-cream/60 hover:text-white transition-colors">Blog</a>
+                </div>
+            </div>
+            <div class="text-center md:text-right">
+                <div class="flex justify-center md:justify-end space-x-6 mb-4">
+                    <a href="https://www.linkedin.com/in/attia-youseif-4a5aab129/" target="_blank" rel="noopener noreferrer" class="text-xl text-cream/50 hover:text-white transition-colors"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/AttiaYouseif" target="_blank" rel="noopener noreferrer" class="text-xl text-cream/50 hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                </div>
+                <p class="text-[10px] uppercase tracking-widest text-cream/30">© 2026 Dr. Attia Youseif. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+        const body = document.body;
+
+        function toggleMenu() {
+            body.classList.toggle('menu-open');
+            mobileMenu.classList.toggle('translate-x-full');
+            mobileOverlay.classList.toggle('hidden');
+            setTimeout(() => mobileOverlay.classList.toggle('opacity-0'), 10);
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+        closeMenu.addEventListener('click', toggleMenu);
+        mobileOverlay.addEventListener('click', toggleMenu);
+    </script>
+</body>
+</html>

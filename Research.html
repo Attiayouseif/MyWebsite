@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research | Dr. Attia Youseif</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Cormorant Garamond (Headings) and Public Sans (Body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Public+Sans:wght@200;300;400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-blue': '#1a2b56', 
+                        'cream': '#FDF9F8',
+                        'nude': '#E9DAD2',
+                        'accent': '#D8E3FF',
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Public Sans', 'sans-serif'],
+                        arabic: ['Amiri', 'serif']
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+            color: #333;
+            background-color: #fff;
+        }
+        .heading-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .nav-link {
+            letter-spacing: 0.15em;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            opacity: 0.7;
+        }
+        .btn-brand {
+            background-color: #1a2b56;
+            color: white;
+            padding: 0.6rem 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.75rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .btn-brand:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+        .section-tag {
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            color: #666;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .arabic-text {
+            font-family: 'Amiri', serif;
+        }
+        .pub-card {
+            background: #fff;
+            transition: all 0.4s ease;
+            border: 1px solid #f1f1f1;
+        }
+        .pub-card:hover {
+            border-color: #1a2b56;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+        /* Mobile menu animation */
+        #mobile-menu {
+            transition: transform 0.4s ease-in-out;
+        }
+        .menu-open #mobile-menu {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Top Branding & Language -->
+    <header class="w-full bg-brand-blue text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col items-center">
+            
+            <div class="w-full flex justify-between items-center mb-6 text-[10px] uppercase tracking-widest text-white/70">
+                <div class="flex space-x-4">
+                    <a href="https://www.linkedin.com/in/attia-youseif-4a5aab129/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://x.com/AttiaYouseif" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                </div>
+                <div class="flex items-center space-x-2"></div>
+            </div>
+
+            <div class="text-center mb-6">
+                <a href="index.html" class="block group">
+                    <h1 class="heading-serif text-4xl md:text-6xl font-bold tracking-tight text-white group-hover:text-nude transition-colors">
+                        Attia Youseif
+                    </h1>
+                    <span class="block text-[10px] md:text-xs uppercase tracking-[0.4em] text-white/60 mt-2 text-center">
+                        Senior Lecturer of Arabic • Indiana University
+                    </span>
+                </a>
+            </div>
+
+            <nav class="hidden lg:flex items-center space-x-6 xl:space-x-10">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="Research.html" class="nav-link font-bold border-b border-white">Research</a>
+                <a href="Teaching.html" class="nav-link">Teaching</a>
+                <a href="Service.html" class="nav-link">Service</a>
+                <a href="Blog.html" class="nav-link">Blog</a>
+                <a href="Media.html" class="nav-link">Media</a>
+                <a href="Recommended.html" class="nav-link">Recommended</a>
+                <a href="contact.html" class="btn-brand">Contact</a>
+            </nav>
+
+            <button id="menu-toggle" class="lg:hidden absolute right-6 top-1/2 -translate-y-1/2 p-2">
+                <div class="w-6 h-0.5 bg-white mb-1.5"></div>
+                <div class="w-6 h-0.5 bg-white mb-1.5"></div>
+                <div class="w-6 h-0.5 bg-white"></div>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav -->
+    <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-[60] hidden opacity-0 transition-opacity duration-300"></div>
+    <aside id="mobile-menu" class="fixed top-0 right-0 h-full w-80 bg-white z-[70] translate-x-full shadow-2xl p-10 flex flex-col">
+        <button id="close-menu" class="self-end text-3xl font-light mb-10 text-brand-blue">&times;</button>
+        <nav class="flex flex-col space-y-6">
+            <a href="index.html" class="nav-link text-xl text-gray-600">Home</a>
+            <a href="about.html" class="nav-link text-xl text-gray-600">About</a>
+            <a href="Research.html" class="nav-link text-xl text-brand-blue font-bold">Research</a>
+            <a href="Teaching.html" class="nav-link text-xl text-gray-600">Teaching</a>
+            <a href="Service.html" class="nav-link text-xl text-gray-600">Service</a>
+            <a href="Blog.html" class="nav-link text-xl text-gray-600">Blog</a>
+            <a href="Media.html" class="nav-link text-xl text-gray-600">Media</a>
+            <a href="Recommended.html" class="nav-link text-xl text-gray-600">Recommended</a>
+            <a href="contact.html" class="btn-brand text-center mt-4">Contact</a>
+        </nav>
+    </aside>
+
+    <main>
+        <!-- Page Header -->
+        <section class="py-24 bg-cream border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-16 text-left">
+                    <div class="flex-shrink-0">
+                        <div class="relative group">
+                            <div class="absolute -inset-4 border border-brand-blue/10 rounded-full scale-105 group-hover:scale-100 transition-transform duration-700"></div>
+                            <div class="w-44 h-44 sm:w-52 sm:h-52 lg:w-64 lg:h-64 rounded-full overflow-hidden border-8 border-white shadow-2xl relative z-10">
+                                <img src="assets/images/image.png" alt="Dr. Attia Youseif research" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="max-w-4xl">
+                        <span class="section-tag">Scholarly Contributions</span>
+                        <h2 class="heading-serif text-5xl md:text-7xl text-gray-900 mb-6 italic">Research & Publications</h2>
+                        <p class="text-gray-500 max-w-2xl text-lg md:text-xl leading-relaxed">
+                            Advancing the field of Arabic studies through computational linguistics, AI-enhanced pedagogy, forensic analysis, and dialectology.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Areas of Investigation -->
+        <section class="py-24 px-6 bg-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="section-tag">Current Inquiry</span>
+                    <h2 class="heading-serif text-5xl text-gray-900">Areas of Investigation</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <article class="p-10 bg-cream border-t-4 border-brand-blue">
+                        <i class="fas fa-microchip text-brand-blue text-2xl mb-6"></i>
+                        <h3 class="heading-serif text-2xl mb-4 italic text-gray-900">AI & Digital Humanities</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">
+                            Leveraging LLMs and machine learning for authorship attribution, writing evaluation, and building functional frequency lexicons.
+                        </p>
+                    </article>
+                    <article class="p-10 bg-cream border-t-4 border-brand-blue">
+                        <i class="fas fa-users text-brand-blue text-2xl mb-6"></i>
+                        <h3 class="heading-serif text-2xl mb-4 italic text-gray-900">Heritage Learners</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">
+                            Comprehensive study of heritage learner needs, dual-language perspectives, and assessment challenges for heritage speakers.
+                        </p>
+                    </article>
+                    <article class="p-10 bg-cream border-t-4 border-brand-blue">
+                        <i class="fas fa-balance-scale text-brand-blue text-2xl mb-6"></i>
+                        <h3 class="heading-serif text-2xl mb-4 italic text-gray-900">Forensic Linguistics</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">
+                            Pioneering applied practices in Arabic forensic linguistics, forensic semiotics, and legal discourse analysis.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Monographs & Textbooks -->
+        <section class="py-24 px-6 bg-cream">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-16">
+                    <span class="section-tag">Major Works</span>
+                    <h2 class="heading-serif text-5xl text-gray-900">Books & Textbooks</h2>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Book 2025 -->
+                    <article class="pub-card p-10 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] uppercase tracking-widest font-bold text-brand-blue bg-nude px-3 py-1 mb-4 inline-block">Forthcoming 2025</span>
+                            <h3 class="heading-serif text-2xl mb-2 text-gray-900 italic">The Miracle of the Qur'anic Expression</h3>
+                            <p class="text-gray-400 text-[10px] uppercase tracking-widest mb-6">King Abdulaziz University Press</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">A comprehensive linguistic analysis from text to meaning construction.</p>
+                        </div>
+                    </article>
+
+                    <!-- Book 2022 -->
+                    <article class="pub-card p-10 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] uppercase tracking-widest font-bold text-brand-blue bg-nude px-3 py-1 mb-4 inline-block">Book</span>
+                            <h3 class="heading-serif text-2xl mb-2 text-gray-900 italic">Forensic Linguistics: Applied Practices</h3>
+                            <p class="text-gray-400 text-[10px] uppercase tracking-widest mb-6">Dar Elnapegha, Egypt, 2022</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">Co-authored volume on forensic linguistic methodologies in Arabic contexts.</p>
+                        </div>
+                    </article>
+
+                    <!-- Book 2021 -->
+                    <article class="pub-card p-10 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] uppercase tracking-widest font-bold text-brand-blue bg-nude px-3 py-1 mb-4 inline-block">Book</span>
+                            <h3 class="heading-serif text-2xl mb-2 text-gray-900 italic">Vocal Performance in the Holy Qur'an</h3>
+                            <p class="text-gray-400 text-[10px] uppercase tracking-widest mb-6">ICESCO, Rabat, 2021</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">Specialized studies in teaching phonological performance to non-native speakers.</p>
+                        </div>
+                    </article>
+
+                    <!-- Textbook 2011 -->
+                    <article class="pub-card p-10 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] uppercase tracking-widest font-bold text-brand-blue bg-nude px-3 py-1 mb-4 inline-block">Textbook</span>
+                            <h3 class="heading-serif text-2xl mb-2 text-gray-900 italic">Arabic Grammar for All</h3>
+                            <p class="text-gray-400 text-[10px] uppercase tracking-widest mb-6">Dar AlnoA’many, 2011</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">Pedagogical grammar guide designed for diverse student levels.</p>
+                        </div>
+                    </article>
+
+                    <!-- Textbook 2010 -->
+                    <article class="pub-card p-10 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] uppercase tracking-widest font-bold text-brand-blue bg-nude px-3 py-1 mb-4 inline-block">Textbook</span>
+                            <h3 class="heading-serif text-2xl mb-2 text-gray-900 italic">Using Technology in Teaching Arabic</h3>
+                            <p class="text-gray-400 text-[10px] uppercase tracking-widest mb-6">Al-Shinhaby Publishing, 2010</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">Early foundational work on digital integration in the Arabic classroom.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Book Chapters & Refereed Articles -->
+        <section class="py-24 px-6 bg-white">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20">
+                <!-- Book Chapters -->
+                <div>
+                    <span class="section-tag">Book Chapters</span>
+                    <h3 class="heading-serif text-4xl text-gray-900 mb-10">Selected Contributions</h3>
+                    <div class="space-y-8">
+                        <article class="border-b border-gray-100 pb-6">
+                            <span class="text-brand-blue font-bold text-xs uppercase tracking-widest">2026</span>
+                            <h4 class="heading-serif text-xl mt-2 text-gray-900">AI and LLMs for Writing Enhancement</h4>
+                            <p class="text-gray-500 text-sm mt-2">In *Employing Artificial Intelligence Applications*, Rabat, Morocco.</p>
+                        </article>
+                        <article class="border-b border-gray-100 pb-6">
+                            <span class="text-brand-blue font-bold text-xs uppercase tracking-widest">2025</span>
+                            <h4 class="heading-serif text-xl mt-2 text-gray-900">Needs of Arabic Heritage Learners</h4>
+                            <p class="text-gray-500 text-sm mt-2">In *Arabic as a Heritage Language: Issues and Approaches*, Routledge.</p>
+                        </article>
+                        <article class="border-b border-gray-100 pb-6">
+                            <span class="text-brand-blue font-bold text-xs uppercase tracking-widest">2024</span>
+                            <h4 class="heading-serif text-xl mt-2 text-gray-900">Adaptive AI Tools for Adult Education</h4>
+                            <p class="text-gray-500 text-sm mt-2">In *Adult Literacy Learners and Social Requirements*, CRSTDLA, Algeria.</p>
+                        </article>
+                        <article class="border-b border-gray-100 pb-6">
+                            <span class="text-brand-blue font-bold text-xs uppercase tracking-widest">2024</span>
+                            <h4 class="heading-serif text-xl mt-2 text-gray-900">Dual Language Heritage Perspectives</h4>
+                            <p class="text-gray-500 text-sm mt-2">In *How Do Our Children Learn Arabic in Diaspora?*, Arab Thought Foundation.</p>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Refereed Articles -->
+                <div>
+                    <span class="section-tag">Journal Articles</span>
+                    <h3 class="heading-serif text-4xl text-gray-900 mb-10">Refereed Research</h3>
+                    <div class="space-y-8">
+                        <article class="border-b border-gray-100 pb-6">
+                            <span class="text-brand-blue font-bold text-xs uppercase tracking-widest">2026 (Forthcoming)</span>
+                            <h4 class="heading-serif text-xl mt-2 text-gray-900">Generative AI as a Pedagogical Bridge</h4>
+                            <p class="text-gray-500 text-sm mt-2">Third International Conference on Interdisciplinary Education, Algeria.</p>
+                        </article>
+                        <article class="border-b border-gray-100 pb-6">
+                            <span class="text-brand-blue font-bold text-xs uppercase tracking-widest">2025 (Accepted)</span>
+                            <h4 class="heading-serif text-xl mt-2 text-gray-900">Modern Standard Arabic Word-Final Vowels</h4>
+                            <p class="text-gray-500 text-sm mt-2">A Case Study of News Anchor Speech. *Al-'Arabiyya*, Vol. 59, Georgetown University Press.</p>
+                        </article>
+                        <article class="border-b border-gray-100 pb-6">
+                            <span class="text-brand-blue font-bold text-xs uppercase tracking-widest">2025</span>
+                            <h4 class="heading-serif text-xl mt-2 text-gray-900">Ellipsis in Arabic & Machine Learning</h4>
+                            <p class="text-gray-500 text-sm mt-2">Detecting Elided Words. *Arabic Linguistics*, John Benjamins.</p>
+                        </article>
+                        <article class="border-b border-gray-100 pb-6">
+                            <span class="text-brand-blue font-bold text-xs uppercase tracking-widest">2024</span>
+                            <h4 class="heading-serif text-xl mt-2 text-gray-900">AI-Powered Arabic Teaching</h4>
+                            <p class="text-gray-500 text-sm mt-2">Challenges and Perspectives. Universidad de Orán 2, Algeria.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Works in Progress -->
+        <section class="py-24 px-6 bg-brand-blue text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+                <div>
+                    <span class="section-tag !text-nude">The Research Frontier</span>
+                    <h2 class="heading-serif text-5xl mb-8">Works in Progress</h2>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-1 h-1 bg-nude mt-2 rounded-full shrink-0"></div>
+                            <p class="text-sm tracking-wide opacity-90 leading-relaxed"><span class="font-bold">Maskuk:</span> Modern Arabic Collocations Dictionary (Final review for AUC Press).</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-1 h-1 bg-nude mt-2 rounded-full shrink-0"></div>
+                            <p class="text-sm tracking-wide opacity-90 leading-relaxed"><span class="font-bold">Forensic Semiotics:</span> Theoretical Introduction and Applied Models (In review).</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-1 h-1 bg-nude mt-2 rounded-full shrink-0"></div>
+                            <p class="text-sm tracking-wide opacity-90 leading-relaxed"><span class="font-bold">Proverb Studies:</span> Sociolinguistic Study of Tlemcen Weavers vs. Egyptian Heritage (2026).</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-1 h-1 bg-nude mt-2 rounded-full shrink-0"></div>
+                            <p class="text-sm tracking-wide opacity-90 leading-relaxed"><span class="font-bold">Global AI Survey:</span> Educator Perspectives and Ethical Implications in World Language Classrooms.</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-1 h-1 bg-nude mt-2 rounded-full shrink-0"></div>
+                            <p class="text-sm tracking-wide opacity-90 leading-relaxed"><span class="font-bold">Egyptian Dialectology:</span> Variations of the /g/ sound across regional dialects.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden lg:flex justify-center items-center">
+                    <i class="fas fa-scroll text-[12rem] text-nude opacity-10"></i>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-16 px-6 text-white border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-10 md:mb-0 text-center md:text-left">
+                <h2 class="heading-serif text-3xl font-light mb-2">Attia Youseif</h2>
+                <p class="text-[10px] uppercase tracking-[0.3em] text-cream/40">Academic Portfolio • Indiana University</p>
+            </div>
+            <div class="flex space-x-12 mb-10 md:mb-0">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="text-xs uppercase tracking-widest text-cream/60 hover:text-white transition-colors">Home</a>
+                    <a href="about.html" class="text-xs uppercase tracking-widest text-cream/60 hover:text-white transition-colors">About</a>
+                </div>
+                <div class="flex flex-col space-y-2">
+                    <a href="Research.html" class="text-xs uppercase tracking-widest text-cream/60 hover:text-white transition-colors">Research</a>
+                    <a href="Blog.html" class="text-xs uppercase tracking-widest text-cream/60 hover:text-white transition-colors">Blog</a>
+                </div>
+            </div>
+            <div class="text-center md:text-right">
+                <div class="flex justify-center md:justify-end space-x-6 mb-4">
+                    <a href="https://www.linkedin.com/in/attia-youseif-4a5aab129/" target="_blank" rel="noopener noreferrer" class="text-xl text-cream/50 hover:text-white transition-colors"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.researchgate.net/profile/Attia-Youseif" target="_blank" class="text-xl text-cream/50 hover:text-white transition-colors"><i class="fab fa-researchgate"></i></a>
+                    <a href="https://x.com/AttiaYouseif" target="_blank" rel="noopener noreferrer" class="text-xl text-cream/50 hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                </div>
+                <p class="text-[10px] uppercase tracking-widest text-cream/30">© 2026 Dr. Attia Youseif. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+        const body = document.body;
+
+        function toggleMenu() {
+            body.classList.toggle('menu-open');
+            mobileMenu.classList.toggle('translate-x-full');
+            mobileOverlay.classList.toggle('hidden');
+            setTimeout(() => mobileOverlay.classList.toggle('opacity-0'), 10);
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+        closeMenu.addEventListener('click', toggleMenu);
+        mobileOverlay.addEventListener('click', toggleMenu);
+    </script>
+</body>
+</html>

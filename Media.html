@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media | Dr. Attia Youseif</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Public+Sans:wght@200;300;400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-blue': '#1a2b56',
+                        'cream': '#FDF9F8',
+                        'nude': '#E9DAD2',
+                        'accent': '#D8E3FF',
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Public Sans', 'sans-serif'],
+                        arabic: ['Amiri', 'serif']
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+            color: #333;
+            background-color: #fff;
+        }
+        .heading-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .nav-link {
+            letter-spacing: 0.15em;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            opacity: 0.7;
+        }
+        .btn-brand {
+            background-color: #1a2b56;
+            color: white;
+            padding: 0.6rem 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.75rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .btn-brand:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+        .section-tag {
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            color: #666;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .media-card {
+            background: #fff;
+            border: 1px solid #f1f1f1;
+            transition: all 0.4s ease;
+        }
+        .media-card:hover {
+            border-color: #1a2b56;
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.06);
+        }
+        .media-embed {
+            aspect-ratio: 16 / 9;
+        }
+        #mobile-menu {
+            transition: transform 0.4s ease-in-out;
+        }
+        .menu-open #mobile-menu {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <header class="w-full bg-brand-blue text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col items-center">
+            <div class="w-full flex justify-between items-center mb-6 text-[10px] uppercase tracking-widest text-white/70">
+                <div class="flex space-x-4">
+                    <a href="https://www.linkedin.com/in/attia-youseif-4a5aab129/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://x.com/AttiaYouseif" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                </div>
+                <div class="flex items-center space-x-2"></div>
+            </div>
+
+            <div class="text-center mb-6">
+                <a href="index.html" class="block group">
+                    <h1 class="heading-serif text-4xl md:text-6xl font-bold tracking-tight text-white group-hover:text-nude transition-colors">
+                        Attia Youseif
+                    </h1>
+                    <span class="block text-[10px] md:text-xs uppercase tracking-[0.4em] text-white/60 mt-2">
+                        Senior Lecturer of Arabic • Indiana University
+                    </span>
+                </a>
+            </div>
+
+            <nav class="hidden lg:flex items-center space-x-6 xl:space-x-10">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="Research.html" class="nav-link">Research</a>
+                <a href="Teaching.html" class="nav-link">Teaching</a>
+                <a href="Service.html" class="nav-link">Service</a>
+                <a href="Blog.html" class="nav-link">Blog</a>
+                <a href="Media.html" class="nav-link font-bold border-b border-white">Media</a>
+                <a href="Recommended.html" class="nav-link">Recommended</a>
+                <a href="contact.html" class="btn-brand">Contact</a>
+            </nav>
+
+            <button id="menu-toggle" class="lg:hidden absolute right-6 top-1/2 -translate-y-1/2 p-2">
+                <div class="w-6 h-0.5 bg-white mb-1.5"></div>
+                <div class="w-6 h-0.5 bg-white mb-1.5"></div>
+                <div class="w-6 h-0.5 bg-white"></div>
+            </button>
+        </div>
+    </header>
+
+    <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-[60] hidden opacity-0 transition-opacity duration-300"></div>
+    <aside id="mobile-menu" class="fixed top-0 right-0 h-full w-80 bg-white z-[70] translate-x-full shadow-2xl p-10 flex flex-col">
+        <button id="close-menu" class="self-end text-3xl font-light mb-10 text-brand-blue">&times;</button>
+        <nav class="flex flex-col space-y-6">
+            <a href="index.html" class="nav-link text-xl text-gray-600">Home</a>
+            <a href="about.html" class="nav-link text-xl text-gray-600">About</a>
+            <a href="Research.html" class="nav-link text-xl text-gray-600">Research</a>
+            <a href="Teaching.html" class="nav-link text-xl text-gray-600">Teaching</a>
+            <a href="Service.html" class="nav-link text-xl text-gray-600">Service</a>
+            <a href="Blog.html" class="nav-link text-xl text-gray-600">Blog</a>
+            <a href="Media.html" class="nav-link text-xl text-brand-blue font-bold">Media</a>
+            <a href="Recommended.html" class="nav-link text-xl text-gray-600">Recommended</a>
+            <a href="contact.html" class="btn-brand text-center mt-4">Contact</a>
+        </nav>
+    </aside>
+
+    <main>
+        <section class="py-24 bg-cream border-b border-gray-100">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <span class="section-tag">Media Coverage</span>
+                <h2 class="heading-serif text-5xl md:text-7xl text-gray-900 mb-6 italic">Media</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto text-lg md:text-xl">
+                    Videos, workshops, and news coverage highlighting Dr. Attia Youseif’s work in Arabic instruction, AI-enhanced pedagogy, and public scholarship.
+                </p>
+            </div>
+        </section>
+
+        <section class="py-24 px-6 bg-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-16">
+                    <span class="section-tag">Video Highlights</span>
+                    <h3 class="heading-serif text-4xl text-gray-900">Featured Videos</h3>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <article class="media-card p-6">
+                        <a href="https://youtu.be/wCnHScxCWks" target="_blank" rel="noopener noreferrer" class="media-embed mb-6 block overflow-hidden rounded-sm">
+                            <img src="https://img.youtube.com/vi/wCnHScxCWks/hqdefault.jpg" alt="ICON-POSTALL 2024 UM thumbnail" class="w-full h-full object-cover">
+                        </a>
+                        <h4 class="heading-serif text-2xl text-gray-900 mb-2 italic">ICON-POSTALL 2024 UM</h4>
+                        <p class="text-sm text-gray-600 mb-4">Conference presentation video.</p>
+                        <a href="https://youtu.be/wCnHScxCWks" target="_blank" rel="noopener noreferrer" class="btn-brand">Watch on YouTube</a>
+                    </article>
+
+                    <article class="media-card p-6">
+                        <a href="https://youtu.be/--ElnJgsLMg" target="_blank" rel="noopener noreferrer" class="media-embed mb-6 block overflow-hidden rounded-sm">
+                            <img src="https://img.youtube.com/vi/--ElnJgsLMg/hqdefault.jpg" alt="2025 Consortium workshop thumbnail" class="w-full h-full object-cover">
+                        </a>
+                        <h4 class="heading-serif text-2xl text-gray-900 mb-2 italic">2025 Consortium of Middle East National Resource Centers Language Workshop</h4>
+                        <p class="text-sm text-gray-600 mb-4">Workshop session with Dr. Attia Youseif.</p>
+                        <a href="https://youtu.be/--ElnJgsLMg" target="_blank" rel="noopener noreferrer" class="btn-brand">Watch on YouTube</a>
+                    </article>
+
+                    <article class="media-card p-6">
+                        <a href="https://youtu.be/Ucu4oxt2rNI" target="_blank" rel="noopener noreferrer" class="media-embed mb-6 block overflow-hidden rounded-sm">
+                            <img src="https://img.youtube.com/vi/Ucu4oxt2rNI/hqdefault.jpg" alt="Creating Interactive Websites for Arabic teaching with Gemini thumbnail" class="w-full h-full object-cover">
+                        </a>
+                        <h4 class="heading-serif text-2xl text-gray-900 mb-2 italic">Creating Interactive Websites for Arabic Teaching with Gemini</h4>
+                        <p class="text-sm text-gray-600 mb-4">Practical demo on building interactive teaching sites.</p>
+                        <a href="https://youtu.be/Ucu4oxt2rNI" target="_blank" rel="noopener noreferrer" class="btn-brand">Watch on YouTube</a>
+                    </article>
+
+                    <article class="media-card p-6">
+                        <a href="https://youtu.be/1_CNydljNh8" target="_blank" rel="noopener noreferrer" class="media-embed mb-6 block overflow-hidden rounded-sm">
+                            <img src="https://img.youtube.com/vi/1_CNydljNh8/hqdefault.jpg" alt="Intensive Academic Arabic at Indiana University thumbnail" class="w-full h-full object-cover">
+                        </a>
+                        <h4 class="heading-serif text-2xl text-gray-900 mb-2 italic">Intensive Academic Arabic at Indiana University</h4>
+                        <p class="text-sm text-gray-600 mb-4">Program overview video.</p>
+                        <a href="https://youtu.be/1_CNydljNh8" target="_blank" rel="noopener noreferrer" class="btn-brand">Watch on YouTube</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-6 bg-cream border-y border-gray-100">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-16">
+                    <span class="section-tag">News Articles</span>
+                    <h3 class="heading-serif text-4xl text-gray-900">Press & Coverage</h3>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <a href="https://www.heraldtimesonline.com/story/news/education/campus/2024/08/08/indiana-university-arabic-professor-encourages-chatgpt-gemini-use/74650746007/" target="_blank" rel="noopener noreferrer" class="media-card p-8 block">
+                        <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-4">Herald-Times</p>
+                        <h4 class="heading-serif text-2xl text-gray-900 mb-3 italic">Why this Indiana University professor encourages his students to use ChatGPT</h4>
+                        <p class="text-sm text-gray-600">Coverage of Dr. Youseif’s approach to AI in language learning.</p>
+                    </a>
+
+                    <a href="https://news.iu.edu/live/news/37211-ius-leadership-in-world-language-instruction" target="_blank" rel="noopener noreferrer" class="media-card p-8 block">
+                        <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-4">Indiana University News</p>
+                        <h4 class="heading-serif text-2xl text-gray-900 mb-3 italic">IU’s leadership in world language instruction includes integration of AI learning tools</h4>
+                        <p class="text-sm text-gray-600">Indiana University profile on innovative language instruction.</p>
+                    </a>
+
+                    <a href="https://www.alecso.org/nsite/ar/newscat/3850-%D8%A7%D9%84%D8%A3%D9%84%D9%83%D8%B3%D9%88-%D8%AA%D8%AD%D8%AA%D8%B6%D9%86-%D9%88%D8%B1%D8%B4%D8%A9-%D8%AA%D8%AF%D8%B1%D9%8A%D8%A8%D9%8A%D8%A9-%D8%AD%D9%88%D9%84-%D8%AA%D8%AF%D8%B1%D9%8A%D8%B3-%D8%A7%D9%84%D9%84%D8%BA%D8%A9-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9" target="_blank" rel="noopener noreferrer" class="media-card p-8 block">
+                        <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-4">ALECSO</p>
+                        <h4 class="heading-serif text-2xl text-gray-900 mb-3 italic">الألكسو تحتضن ورشة تدريبية حول تدريس اللغة العربية</h4>
+                        <p class="text-sm text-gray-600">Arabic-language coverage of a training workshop on teaching Arabic.</p>
+                    </a>
+
+                    <a href="https://celt.leeds.ac.uk/events/ai-in-the-classroom-practical-insights-for-teaching-foreign-or-second-language-with-generative-ai-tools/" target="_blank" rel="noopener noreferrer" class="media-card p-8 block">
+                        <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-4">University of Leeds</p>
+                        <h4 class="heading-serif text-2xl text-gray-900 mb-3 italic">AI in the Classroom: Practical Insights for Teaching Foreign or Second Language with Generative AI Tools</h4>
+                        <p class="text-sm text-gray-600">Event page for a teaching workshop featuring Dr. Youseif’s broader work in AI pedagogy.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 py-16 px-6 text-white border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-10 md:mb-0 text-center md:text-left">
+                <h2 class="heading-serif text-3xl font-light mb-2">Attia Youseif</h2>
+                <p class="text-[10px] uppercase tracking-[0.3em] text-cream/40">Academic Portfolio • Indiana University</p>
+            </div>
+            <div class="flex space-x-12 mb-10 md:mb-0">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="text-xs uppercase tracking-widest text-cream/60 hover:text-white transition-colors">Home</a>
+                    <a href="about.html" class="text-xs uppercase tracking-widest text-cream/60 hover:text-white transition-colors">About</a>
+                </div>
+                <div class="flex flex-col space-y-2">
+                    <a href="Research.html" class="text-xs uppercase tracking-widest text-cream/60 hover:text-white transition-colors">Research</a>
+                    <a href="Blog.html" class="text-xs uppercase tracking-widest text-cream/60 hover:text-white transition-colors">Blog</a>
+                </div>
+            </div>
+            <div class="text-center md:text-right">
+                <div class="flex justify-center md:justify-end space-x-6 mb-4">
+                    <a href="https://www.linkedin.com/in/attia-youseif-4a5aab129/" target="_blank" rel="noopener noreferrer" class="text-xl text-cream/50 hover:text-white transition-colors"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/AttiaYouseif" target="_blank" rel="noopener noreferrer" class="text-xl text-cream/50 hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                </div>
+                <p class="text-[10px] uppercase tracking-widest text-cream/30">© 2026 Dr. Attia Youseif. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+        const body = document.body;
+
+        function toggleMenu() {
+            body.classList.toggle('menu-open');
+            mobileMenu.classList.toggle('translate-x-full');
+            mobileOverlay.classList.toggle('hidden');
+            setTimeout(() => mobileOverlay.classList.toggle('opacity-0'), 10);
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+        closeMenu.addEventListener('click', toggleMenu);
+        mobileOverlay.addEventListener('click', toggleMenu);
+    </script>
+</body>
+</html>
