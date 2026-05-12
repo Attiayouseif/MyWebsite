@@ -8,7 +8,7 @@
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Google Fonts: Cormorant Garamond (Headings) and Public Sans (Body) -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Public+Sans:wght@200;300;400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
@@ -47,22 +47,27 @@
             text-transform: uppercase;
             transition: all 0.3s ease;
         }
-        .nav-link:hover {
-            opacity: 0.7;
-        }
+        .nav-link:hover { opacity: 0.7; }
         .btn-brand {
             background-color: #1a2b56;
             color: white;
-            padding: 0.75rem 2rem;
+            padding: 0.6rem 1.5rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
             transition: all 0.3s ease;
+            display: inline-block;
+            cursor: pointer;
+            border: none;
         }
         .btn-brand:hover {
             opacity: 0.9;
             transform: translateY(-1px);
+        }
+        .btn-brand:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
         .section-tag {
             letter-spacing: 0.3em;
@@ -72,49 +77,43 @@
             margin-bottom: 1rem;
             display: block;
         }
-        .arabic-text {
-            font-family: 'Amiri', serif;
+        /* Success Message Animation */
+        #success-msg {
+            display: none;
+            animation: fadeIn 0.5s ease forwards;
         }
-        .info-card {
-            background: #fff;
-            border-bottom: 1px solid #eee;
-            transition: all 0.3s ease;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        /* Mobile menu animation */
-        #mobile-menu {
-            transition: transform 0.4s ease-in-out;
-        }
-        .menu-open #mobile-menu {
-            transform: translateX(0);
-        }
+        #mobile-menu { transition: transform 0.4s ease-in-out; }
+        .menu-open #mobile-menu { transform: translateX(0); }
     </style>
 </head>
 <body class="overflow-x-hidden">
 
-    <!-- Top Branding & Language -->
+    <!-- Header -->
     <header class="w-full bg-brand-blue text-white sticky top-0 z-50 shadow-lg">
         <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col items-center">
-            
             <div class="w-full flex justify-between items-center mb-6 text-[10px] uppercase tracking-widest text-white/70">
                 <div class="flex space-x-4">
-                    <a href="https://www.linkedin.com/in/attia-youseif-4a5aab129/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://x.com/AttiaYouseif" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/attia-youseif-4a5aab129/" target="_blank" class="hover:text-white transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://x.com/AttiaYouseif" target="_blank" class="hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
                 </div>
-                <div class="flex items-center space-x-2"></div>
+                <!-- Language Selector Removed per request -->
+                <div></div> 
             </div>
 
             <div class="text-center mb-6">
                 <a href="index.html" class="block group">
-                    <h1 class="heading-serif text-4xl md:text-6xl font-bold tracking-tight text-white group-hover:text-nude transition-colors">
-                        Attia Youseif
-                    </h1>
-                    <span class="block text-[10px] md:text-xs uppercase tracking-[0.4em] text-white/60 mt-2">
+                    <h1 class="heading-serif text-3xl md:text-5xl font-bold tracking-tight text-white group-hover:text-nude transition-colors">Attia Youseif</h1>
+                    <span class="block text-[10px] md:text-xs uppercase tracking-[0.4em] text-white/60 mt-2 text-center">
                         Senior Lecturer of Arabic • Indiana University
                     </span>
                 </a>
             </div>
 
-            <nav class="hidden lg:flex items-center space-x-10">
+            <nav class="hidden lg:flex items-center space-x-4 xl:space-x-8">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="about.html" class="nav-link">About</a>
                 <a href="Research.html" class="nav-link">Research</a>
@@ -134,7 +133,7 @@
         </div>
     </header>
 
-    <!-- Mobile Nav -->
+    <!-- Mobile Nav Overlay -->
     <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-[60] hidden opacity-0 transition-opacity duration-300"></div>
     <aside id="mobile-menu" class="fixed top-0 right-0 h-full w-80 bg-white z-[70] translate-x-full shadow-2xl p-10 flex flex-col">
         <button id="close-menu" class="self-end text-3xl font-light mb-10 text-brand-blue">&times;</button>
@@ -147,7 +146,7 @@
             <a href="Blog.html" class="nav-link text-xl text-gray-600">Blog</a>
             <a href="Media.html" class="nav-link text-xl text-gray-600">Media</a>
             <a href="Recommended.html" class="nav-link text-xl text-gray-600">Recommended</a>
-            <a href="contact.html" class="btn-brand text-center mt-4">Contact</a>
+            <a href="contact.html" class="nav-link text-xl text-brand-blue font-bold">Contact</a>
         </nav>
     </aside>
 
@@ -157,7 +156,7 @@
             <div class="max-w-7xl mx-auto px-6 text-left">
                 <span class="section-tag">Let's Connect</span>
                 <h2 class="heading-serif text-5xl md:text-7xl text-gray-900 mb-6 italic">Contact</h2>
-                <p class="text-gray-500 max-w-lg">For academic inquiries, collaboration proposals, or professional consultations regarding Arabic linguistics and pedagogy.</p>
+                <p class="text-gray-500 max-w-lg leading-relaxed">For academic inquiries, collaboration proposals, or professional consultations regarding Arabic linguistics and pedagogy.</p>
             </div>
         </section>
 
@@ -177,7 +176,8 @@
                                 <div>
                                     <h4 class="heading-serif text-2xl text-gray-900 mb-1">Affiliation</h4>
                                     <p class="text-gray-600 text-sm leading-relaxed">
-                                        Department of Middle East Languages and Cultures<br>
+                                        Dept. of Middle Eastern Languages and Cultures (MELC)<br>
+                                        Hamilton Lugar School of Global & International Studies<br>
                                         Indiana University Bloomington
                                     </p>
                                 </div>
@@ -189,10 +189,9 @@
                                 </div>
                                 <div>
                                     <h4 class="heading-serif text-2xl text-gray-900 mb-1">Mailing Address</h4>
-                                    <p class="text-gray-600 text-sm leading-relaxed">
+                                    <p class="text-gray-600 text-sm leading-relaxed italic">
                                         355 North Eagleson Ave.<br>
-                                        Bloomington, IN 47405<br>
-                                        United States
+                                        Bloomington, IN 47405, USA
                                     </p>
                                 </div>
                             </article>
@@ -202,10 +201,10 @@
                                     <i class="fas fa-envelope"></i>
                                 </div>
                                 <div>
-                                    <h4 class="heading-serif text-2xl text-gray-900 mb-1">Email Addresses</h4>
-                                    <div class="space-y-2">
-                                        <a href="mailto:ayouseif@iu.edu" class="text-brand-blue font-semibold hover:underline decoration-nude decoration-4 underline-offset-4">ayouseif@iu.edu</a><br>
-                                        <a href="mailto:attiayouseif@gmail.com" class="text-brand-blue font-semibold hover:underline decoration-nude decoration-4 underline-offset-4">attiayouseif@gmail.com</a>
+                                    <h4 class="heading-serif text-2xl text-gray-900 mb-1">Direct Contact</h4>
+                                    <div class="space-y-1 text-sm text-gray-600">
+                                        <p><span class="font-bold text-brand-blue">Email:</span> <a href="mailto:ayouseif@iu.edu" class="hover:text-brand-blue transition-colors">ayouseif@iu.edu</a></p>
+                                        <p><span class="font-bold text-brand-blue">Email:</span> <a href="mailto:attiayouseif@gmail.com" class="hover:text-brand-blue transition-colors">attiayouseif@gmail.com</a></p>
                                     </div>
                                 </div>
                             </article>
@@ -215,37 +214,54 @@
                     <div class="pt-10 border-t border-gray-100">
                         <h3 class="heading-serif text-3xl text-gray-900 mb-6">Current Focus Areas</h3>
                         <div class="flex flex-wrap gap-3">
-                            <span class="px-4 py-2 bg-gray-50 border border-gray-100 text-[10px] uppercase tracking-widest text-gray-600">Arabic Linguistics</span>
-                            <span class="px-4 py-2 bg-gray-50 border border-gray-100 text-[10px] uppercase tracking-widest text-gray-600">Pedagogy</span>
-                            <span class="px-4 py-2 bg-gray-50 border border-gray-100 text-[10px] uppercase tracking-widest text-gray-600">Dialectology</span>
+                            <span class="px-4 py-2 bg-cream border border-brand-blue/10 text-[10px] uppercase tracking-widest text-brand-blue font-bold">Arabic Linguistics</span>
+                            <span class="px-4 py-2 bg-cream border border-brand-blue/10 text-[10px] uppercase tracking-widest text-brand-blue font-bold">Forensic Analysis</span>
+                            <span class="px-4 py-2 bg-cream border border-brand-blue/10 text-[10px] uppercase tracking-widest text-brand-blue font-bold">AI Pedagogy</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Form or Visual Section -->
-                <div class="bg-cream p-10 md:p-16 rounded-sm">
-                    <h3 class="heading-serif text-3xl text-gray-900 mb-8">Send a Message</h3>
-                    <form action="#" class="space-y-6">
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div class="space-y-2">
-                                <label class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">First Name</label>
-                                <input type="text" class="w-full bg-white border border-gray-200 px-4 py-3 focus:outline-none focus:border-brand-blue transition-colors">
+                <!-- Form Section -->
+                <div class="bg-cream p-10 md:p-16 rounded-sm relative min-h-[500px]">
+                    <div id="form-container">
+                        <h3 class="heading-serif text-3xl text-gray-900 mb-8">Send a Message</h3>
+                        <form id="contact-form" action="https://formsubmit.co/ayouseif@iu.edu" method="POST" class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">First Name</label>
+                                    <input type="text" name="first_name" required class="w-full bg-white border border-gray-200 px-4 py-3 focus:outline-none focus:border-brand-blue transition-colors">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Last Name</label>
+                                    <input type="text" name="last_name" required class="w-full bg-white border border-gray-200 px-4 py-3 focus:outline-none focus:border-brand-blue transition-colors">
+                                </div>
                             </div>
                             <div class="space-y-2">
-                                <label class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Last Name</label>
-                                <input type="text" class="w-full bg-white border border-gray-200 px-4 py-3 focus:outline-none focus:border-brand-blue transition-colors">
+                                <label class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Email Address</label>
+                                <input type="email" name="email" required class="w-full bg-white border border-gray-200 px-4 py-3 focus:outline-none focus:border-brand-blue transition-colors">
                             </div>
+                            <div class="space-y-2">
+                                <label class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Message</label>
+                                <textarea name="message" rows="5" required class="w-full bg-white border border-gray-200 px-4 py-3 focus:outline-none focus:border-brand-blue transition-colors"></textarea>
+                            </div>
+                            
+                            <input type="hidden" name="_subject" value="New Website Inquiry">
+                            <!-- Honey pot to prevent spam -->
+                            <input type="text" name="_honey" style="display:none">
+                            
+                            <button type="submit" id="submit-btn" class="btn-brand w-full">Send Message</button>
+                        </form>
+                    </div>
+
+                    <!-- Success State -->
+                    <div id="success-msg" class="text-center py-20">
+                        <div class="w-20 h-20 bg-brand-blue text-white rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-check text-3xl"></i>
                         </div>
-                        <div class="space-y-2">
-                            <label class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Email Address</label>
-                            <input type="email" class="w-full bg-white border border-gray-200 px-4 py-3 focus:outline-none focus:border-brand-blue transition-colors">
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Message</label>
-                            <textarea rows="5" class="w-full bg-white border border-gray-200 px-4 py-3 focus:outline-none focus:border-brand-blue transition-colors"></textarea>
-                        </div>
-                        <button type="submit" class="btn-brand w-full">Send Message</button>
-                    </form>
+                        <h3 class="heading-serif text-3xl text-gray-900 mb-4">Message Sent</h3>
+                        <p class="text-gray-500">Thank you for reaching out. I have received your inquiry and will respond as soon as possible.</p>
+                        <button onclick="resetForm()" class="mt-8 text-brand-blue font-bold text-[10px] uppercase tracking-widest border-b border-brand-blue">Send another</button>
+                    </div>
                 </div>
 
             </div>
@@ -259,22 +275,23 @@
                 <h2 class="heading-serif text-3xl font-light mb-2">Attia Youseif</h2>
                 <p class="text-[10px] uppercase tracking-[0.3em] text-cream/40">Academic Portfolio • Indiana University</p>
             </div>
-            <div class="flex space-x-12 mb-10 md:mb-0">
+            <div class="flex space-x-8 mb-10 md:mb-0">
                 <div class="flex flex-col space-y-2">
                     <a href="index.html" class="text-xs uppercase tracking-widest text-cream/60 hover:text-white transition-colors">Home</a>
                     <a href="about.html" class="text-xs uppercase tracking-widest text-cream/60 hover:text-white transition-colors">About</a>
                 </div>
                 <div class="flex flex-col space-y-2">
                     <a href="Research.html" class="text-xs uppercase tracking-widest text-cream/60 hover:text-white transition-colors">Research</a>
-                    <a href="Teaching.html" class="text-xs uppercase tracking-widest text-cream/60 hover:text-white transition-colors">Teaching</a>
+                    <a href="Blog.html" class="text-xs uppercase tracking-widest text-cream/60 hover:text-white transition-colors">Blog</a>
                 </div>
             </div>
             <div class="text-center md:text-right">
                 <div class="flex justify-center md:justify-end space-x-6 mb-4">
-                    <a href="https://www.linkedin.com/in/attia-youseif-4a5aab129/" target="_blank" rel="noopener noreferrer" class="text-xl text-cream/50 hover:text-white transition-colors"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://x.com/AttiaYouseif" target="_blank" rel="noopener noreferrer" class="text-xl text-cream/50 hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/attia-youseif-4a5aab129/" target="_blank" class="text-xl text-cream/50 hover:text-white transition-colors"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/AttiaYouseif" target="_blank" class="text-xl text-cream/50 hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                    <a href="mailto:ayouseif@iu.edu" class="text-xl text-cream/50 hover:text-white transition-colors"><i class="fas fa-envelope"></i></a>
                 </div>
-                <p class="text-[10px] uppercase tracking-widest text-cream/30">© 2024 Dr. Attia Youseif. All Rights Reserved.</p>
+                <p class="text-[10px] uppercase tracking-widest text-cream/30">© 2026 Dr. Attia Youseif. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -284,8 +301,13 @@
         const closeMenu = document.getElementById('close-menu');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileOverlay = document.getElementById('mobile-overlay');
+        const contactForm = document.getElementById('contact-form');
+        const formContainer = document.getElementById('form-container');
+        const successMsg = document.getElementById('success-msg');
+        const submitBtn = document.getElementById('submit-btn');
         const body = document.body;
 
+        // Mobile Menu
         function toggleMenu() {
             body.classList.toggle('menu-open');
             mobileMenu.classList.toggle('translate-x-full');
@@ -296,6 +318,46 @@
         menuToggle.addEventListener('click', toggleMenu);
         closeMenu.addEventListener('click', toggleMenu);
         mobileOverlay.addEventListener('click', toggleMenu);
+
+        // Functional Form Submission
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Sending...';
+
+            const formData = new FormData(contactForm);
+            
+            fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    formContainer.style.display = 'none';
+                    successMsg.style.display = 'block';
+                } else {
+                    alert('There was a problem sending your message. Please try again.');
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = 'Send Message';
+                }
+            })
+            .catch(error => {
+                alert('Connection error. Please check your internet and try again.');
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'Send Message';
+            });
+        });
+
+        function resetForm() {
+            contactForm.reset();
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'Send Message';
+            formContainer.style.display = 'block';
+            successMsg.style.display = 'none';
+        }
     </script>
 </body>
 </html>
